@@ -1,0 +1,18 @@
+mybatis:
+  mapper-locations: classpath:mapper/*
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+    metrics:
+      enabled: true
+info:
+  appName: spring-boot-debug
