@@ -32,7 +32,7 @@ public class MybatisDemo {
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
         Blog blog = mapper.selectBlog(1);
         System.out.println(blog);
         sqlSession.commit();

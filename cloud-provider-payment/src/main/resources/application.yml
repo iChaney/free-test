@@ -1,0 +1,5 @@
+mybatis:
+  mapper-locations: classpath:mapper/*
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
