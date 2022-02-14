@@ -19,7 +19,7 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    @RequestMapping("list")
+    @RequestMapping("/list")
     public RestResponse courseList() {
         List<CoursePo> coursePos = courseService.courseList();
         return RestResponse.success(coursePos);

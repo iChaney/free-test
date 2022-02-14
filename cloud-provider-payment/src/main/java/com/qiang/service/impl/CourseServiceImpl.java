@@ -4,6 +4,7 @@ import com.qiang.mapper.CourseMapper;
 import com.qiang.po.CoursePo;
 import com.qiang.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +17,14 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService {
     @Autowired
     CourseMapper courseMapper;
+    @Autowired
+    ApplicationContext applicationContext;
 
     @Override
     public List<CoursePo> courseList() {
-        return courseMapper.selectByName(null);
+        List<CoursePo> coursePos = courseMapper.selectByName(null);
+        System.out.println(applicationContext.getEnvironment().getProperty("user.name"));
+        System.out.println(applicationContext.getEnvironment().getProperty("user.age"));
+        return coursePos;
     }
 }
