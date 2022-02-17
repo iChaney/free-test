@@ -9,14 +9,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author liq
- * @date 2022/2/11 14:37
+ * @date 2022/2/16 13:40
  */
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @MapperScan(basePackages = {"com.qiang.mapper"})
-public class OrderApplication {
+public class AccountApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(AccountApplication.class, args);
     }
 }

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-order</artifactId>
+    <artifactId>cloud-account-center</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -49,8 +49,14 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.qiang</groupId>
+            <artifactId>cloud-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <!-- seata-->
+        <!-- 一定要注意starter里seata-all的版本 -->
         <dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
@@ -78,11 +84,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <dependency>
-            <groupId>com.qiang</groupId>
-            <artifactId>cloud-api</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
+
 </project>

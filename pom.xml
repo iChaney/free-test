@@ -17,6 +17,9 @@
         <module>cloud-consumer-order</module>
         <module>cloud-common</module>
         <module>cloud-eureka-server</module>
+        <module>cloud-api</module>
+        <module>cloud-account-center</module>
+        <module>cloud-storage-center</module>
     </modules>
 
     <properties>
@@ -44,6 +47,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.11</version>
         </dependency>
     </dependencies>
 

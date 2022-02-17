@@ -1,7 +1,7 @@
 package com.qiang.controller;
 
 import com.qiang.annotations.ApiRequestBody;
-import com.qiang.dto.HelloDTO;
+import com.qiang.model.dto.HelloDTO;
 import com.qiang.event.OrderEvent;
 import com.qiang.exception.BizExeception;
 import com.qiang.service.HelloService;

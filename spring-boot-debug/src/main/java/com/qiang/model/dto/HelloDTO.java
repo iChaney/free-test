@@ -1,4 +1,4 @@
-package com.qiang.dto;
+package com.qiang.model.dto;
 
 import lombok.Data;
 
