@@ -5,12 +5,13 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
 logging.level:
-  com.qiang.service.OrderService: debug
+  com.qiang.feign.PaymentFeignClient: DEBUG
+  ROOT: info
 mybatis:
   mapper-locations: classpath:mapper/*
   configuration:
     mapUnderscoreToCamelCase: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 seata:
   tx-service-group: my-tx-group
   registry:

@@ -16,7 +16,6 @@
         <module>cloud-provider-payment</module>
         <module>cloud-consumer-order</module>
         <module>cloud-common</module>
-        <module>cloud-eureka-server</module>
         <module>cloud-api</module>
         <module>cloud-account-center</module>
         <module>cloud-storage-center</module>
