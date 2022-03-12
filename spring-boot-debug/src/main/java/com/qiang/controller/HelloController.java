@@ -1,10 +1,9 @@
 package com.qiang.controller;
 
 import com.qiang.annotations.ApiRequestBody;
-import com.qiang.model.dto.HelloDTO;
 import com.qiang.event.OrderEvent;
 import com.qiang.exception.BizExeception;
-import com.qiang.service.HelloService;
+import com.qiang.model.dto.HelloDTO;
 import com.qiang.vo.HelloVO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +20,6 @@ import javax.annotation.Resource;
 public class HelloController {
     @Resource
     ApplicationContext applicationContext;
-    @Resource
-    HelloService helloService;
 
     @RequestMapping("/hello")
     public HelloVO hello(@ApiRequestBody HelloDTO helloDTO) {
@@ -36,7 +33,8 @@ public class HelloController {
 
     @RequestMapping("/hello/name")
     public String helloName(@RequestParam("name") String name) {
-        return helloService.sayHello(name);
+//        return helloService.sayHello(name);
+        return "";
     }
 
 

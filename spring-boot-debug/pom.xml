@@ -52,11 +52,16 @@
             <version>1.4.1</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.qiang</groupId>
             <artifactId>hello-spring-boot-starter</artifactId>
             <version>1.0.0</version>
-        </dependency>
+        </dependency>-->
 
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.9.3</version>
+        </dependency>
     </dependencies>
 </project>
