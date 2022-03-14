@@ -1,4 +1,4 @@
-package com.qiang.mq.simple;
+package com.qiang.mq.filter;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -9,7 +9,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
  * @author: liq
  * @date: 2022/3/12 13:26
  */
-public class SyncProducer {
+public class Producer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
         DefaultMQProducer producer = new
@@ -25,7 +25,8 @@ public class SyncProducer {
                     ("Hello RocketMQ " +
                             i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
             );
-            msg.setDelayTimeLevel(3);   // 10s后消费
+            msg.putUserProperty("value", i+"");
+            // msg.setDelayTimeLevel(3);   // 10s后消费
             //Call send message to deliver message to one of brokers.
             SendResult sendResult = producer.send(msg);
             System.out.printf("%s%n", sendResult);

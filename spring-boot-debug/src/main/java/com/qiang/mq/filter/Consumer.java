@@ -1,6 +1,7 @@
-package com.qiang.mq.simple;
+package com.qiang.mq.filter;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
+import org.apache.rocketmq.client.consumer.MessageSelector;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
@@ -23,7 +24,7 @@ public class Consumer {
         consumer.setNamesrvAddr("122.112.205.177:9876");
 
         // Subscribe one more more topics to consume.
-        consumer.subscribe("my_topic", "*");
+        consumer.subscribe("my_topic", MessageSelector.bySql("value > 5"));
         // 默认负载均衡模式
 //        consumer.setMessageModel(MessageModel.BROADCASTING);
 

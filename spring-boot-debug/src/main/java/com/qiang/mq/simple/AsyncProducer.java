@@ -23,13 +23,13 @@ public class AsyncProducer {
         producer.start();
         producer.setRetryTimesWhenSendAsyncFailed(0);
 
-        int messageCount = 100;
+        int messageCount = 10;
         final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
         for (int i = 0; i < messageCount; i++) {
             try {
                 final int index = i;
-                Message msg = new Message("TopicTest",
-                        "TagA",
+                Message msg = new Message("my_topic",
+                        "my_tag",
                         "OrderID188",
                         "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
                 producer.send(msg, new SendCallback() {
