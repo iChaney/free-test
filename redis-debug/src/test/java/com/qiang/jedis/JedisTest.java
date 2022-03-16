@@ -24,7 +24,7 @@ public class JedisTest {
     @Test
     @DisplayName("删除中控的门店活动")
     public void deleteHotelActivity() {
-        stringService.deleteHotelActivity("07085", "", "", "");
+        stringService.deleteHotelActivity("07043", "");
     }
     @Test
     public void testString() {

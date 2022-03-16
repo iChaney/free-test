@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
@@ -37,10 +38,11 @@ public class TengxunMapTest {
     ShopbaseDOMapper shopbaseDOMapper;
 
     private static String IMPORT_URL = "https://api.weixin.qq.com/cityservice/importbusinesspoidata?access_token" +
-                                       "=54_acFSL-cs2JfVtnmooQwPoxPZ0TCybOcwylC8Fk-yNkiQyTria5BUbAJURYFB7QcUeKlIVk6PTOU_dDk2TYUa-t8heSgxEaMWXGtgngJ1i_uMI_EsEAqTrK0kaoXGWPxt2KXpdUMjGfRKlanzBAWhAHAUTP";
+                                       "=54_jEDsvRVD5V0Su_4XDcEY6rmvCDIR-53NYAi12YEA9dI9u-zGFnrx6R7_15rZouPiA3xOc63VnjXHsrHRevCT7Dh3OekcDWX1UpcC5jfUPDiSG_VX8-4QrtyMJ069bh5LefAs0sOwizuhTMoAABBfAGAVWW";
 
 
     @Test
+    @Transactional
     @DisplayName("向腾讯地图导入门店信息")
     public void importBusinessData() {
         /**
@@ -80,7 +82,7 @@ public class TengxunMapTest {
     }
 
     private void installParams(ImportBusinessShopInfo shopInfo, JSONObject params) {
-        params.put("ud_id", "1");
+        params.put("ud_id", shopInfo.getShopId());
         params.put("status", 1);
         params.put("title", shopInfo.getShopName());
         params.put("category", "酒店宾馆");
@@ -111,13 +113,13 @@ public class TengxunMapTest {
 
         // 需要确认
         params.put("app_id", "wx4a68a5b1b2d89fea");
-        params.put("app_name", "心里美酒店预定尚客优骏怡兰欧");
+        params.put("app_name", "官方小程序品牌直售");
         params.put("app_icon", "https://picture.ethank.com.cn/20220221/180.png");
         params.put("app_origin_id", "gh_c94458e36387");
         JSONArray pages = new JSONArray();
         JSONObject page1 = new JSONObject();
-        page1.put("name", "首页");
-        page1.put("path", "pages/index/index");
+        page1.put("name", "预订");
+        page1.put("path", "pages/hotel-detail/hotel-detail?id=" + shopInfo.getShopId());
         page1.put("rank", 1);
         pages.add(page1);
         params.put("pages", pages);
@@ -134,6 +136,6 @@ public class TengxunMapTest {
 
     // 从数据库查需要导入的门店信息
     public List<ImportBusinessShopInfo> getImportBusinessShopInfoList() {
-        return shopbaseDOMapper.importBusinessShopInfoList("00192");
+        return shopbaseDOMapper.importBusinessShopInfoList(null);
     }
 }
