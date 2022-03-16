@@ -1,5 +1,6 @@
 package com.qiang.design.proxy;
 
+
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -21,7 +22,6 @@ public class CglibProxy {
             public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
                 System.out.println("before");
                 Object ret = method.invoke(sourceCar, args);
-                System.out.println("after");
                 return ret;
             }
         });

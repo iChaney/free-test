@@ -1,7 +1,5 @@
 package com.qiang.lock.cpu;
 
-import org.openjdk.jol.info.ClassLayout;
-
 import java.util.concurrent.CountDownLatch;
 
 /**

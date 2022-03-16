@@ -19,6 +19,7 @@
         <module>cloud-api</module>
         <module>cloud-account-center</module>
         <module>cloud-storage-center</module>
+        <module>basic</module>
     </modules>
 
     <properties>
