@@ -26,3 +26,5 @@ seata:
   service:
     vgroup-mapping:
       my-tx-group: default
+  transport:
+    heartbeat: false

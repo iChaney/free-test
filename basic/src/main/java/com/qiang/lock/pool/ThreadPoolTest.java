@@ -53,9 +53,12 @@ public class ThreadPoolTest {
     static class MyThreadFactory implements ThreadFactory {
         private final AtomicLong threadIndex = new AtomicLong(0);
 
+        /**
+         * 最多只生成10个线程执行任务
+         */
         @Override
         public Thread newThread(Runnable r) {
-            Thread thread = new Thread(r, "my-thread-" + threadIndex.incrementAndGet());
+            Thread thread = new Thread(r, this + "my-thread-" + threadIndex.incrementAndGet());
             return thread;
         }
     }
