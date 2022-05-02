@@ -12,18 +12,18 @@ mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-seata:
-  tx-service-group: my-tx-group
-  registry:
-    type: nacos
-    nacos:
-      application: seata-server
-      serverAddr: 127.0.0.1:8848
-      group: SEATA_GROUP
-      namespace: ""
-      cluster: default
-      username: nacos
-      password: nacos
-  service:
-    vgroup-mapping:
-      my-tx-group: default
+#seata:
+#  tx-service-group: my-tx-group
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      serverAddr: 127.0.0.1:8848
+#      group: SEATA_GROUP
+#      namespace: ""
+#      cluster: default
+#      username: nacos
+#      password: nacos
+#  service:
+#    vgroup-mapping:
+#      my-tx-group: default
