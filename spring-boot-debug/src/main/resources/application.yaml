@@ -1,8 +1,10 @@
 mybatis:
   mapper-locations: classpath:mapper/*
   configuration:
+#    自动转换驼峰式
     mapUnderscoreToCamelCase: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
 
 management:
   endpoints:

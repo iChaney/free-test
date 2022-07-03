@@ -6,5 +6,14 @@ package com.qiang.lock.pool;
  */
 public class ExcutorsTest {
     public static void main(String[] args) {
+        getObject(new Integer(1));
     }
+
+    public static  <T> void getObjectClass(T t){
+        System.out.println(t.getClass());
+    }
+    public static  <T> void getObject(Object t){
+        System.out.println(t.getClass());
+    }
+
 }

@@ -31,16 +31,15 @@ public class MybatisDemo {
             e.printStackTrace();
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
-        Blog blog = mapper.selectBlog(1);
+        Blog blog = mapper.selectBlog("blog", 1);
         System.out.println(blog);
-        sqlSession.commit();
-        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
         BlogMapper mapper2 = sqlSession2.getMapper(BlogMapper.class);
-        Blog blog2 = mapper2.selectBlog(1);
+        Blog blog2 = mapper2.selectBlog("blog", 1);
         System.out.println(blog2);
-        sqlSession.commit();
     }
 
 }

@@ -2,6 +2,7 @@ package com.qiang.po;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -9,7 +10,8 @@ import java.time.LocalDateTime;
  * @date 2022/1/21 18:12
  */
 @Data
-public class CoursePo {
+public class CoursePo implements Serializable {
+
     private Long id;
     private String courseName;
     private String courseType;

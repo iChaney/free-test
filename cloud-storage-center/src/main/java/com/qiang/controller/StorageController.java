@@ -17,6 +17,12 @@ public class StorageController {
     @Autowired
     StorageService storageService;
 
+    /**
+     * 呵呵.呵呵.
+     * @param commodityCode
+     * @param count
+     * @return
+     */
     @PostMapping("/reduce")
     RestResponse reduce(@PathParam("commodityCode") String commodityCode, @PathParam("count") Integer count) {
         return storageService.reduce(commodityCode, count);

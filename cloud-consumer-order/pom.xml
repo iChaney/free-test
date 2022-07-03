@@ -51,12 +51,12 @@
         </dependency>
 
         <!-- seata-->
-        <!--<dependency>
+        <dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
             <version>1.4.2</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-spring-boot-starter</artifactId>
             <version>1.4.2</version>

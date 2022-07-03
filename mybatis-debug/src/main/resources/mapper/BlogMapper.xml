@@ -5,7 +5,7 @@
 <mapper namespace="com.qiang.mapper.BlogMapper">
     <select id="selectBlog" resultType="com.qiang.entity.Blog">
         select *
-        from blog
+        from ${tableName}
         where id = #{id}
     </select>
 

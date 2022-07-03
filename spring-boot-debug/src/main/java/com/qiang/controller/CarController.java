@@ -8,6 +8,7 @@ import com.qiang.config.CarProperties;
 import com.qiang.mapper.CourseMapper;
 import com.qiang.po.CoursePo;
 import com.qiang.vo.CourseListVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/car")
+@Slf4j
 public class CarController {
     @Autowired
     CarProperties carProperties;
@@ -55,9 +57,20 @@ public class CarController {
         return JSON.toJSONString(map);
     }
 
-    @PostMapping("/course")
+    /**
+     * 测试二级缓存和一级缓存
+     *
+     * @return
+     */
+    @GetMapping("/course")
+//    @Transactional
     public Object course() {
-        return courseMapper.selectById(1L);
+        CoursePo coursePo = courseMapper.selectById(1L);
+        // 同一mapper内发生增删改, 二级缓存失效
+        courseMapper.updateById(2L);
+        CoursePo coursePo1 = courseMapper.selectById(1L);
+        log.info("查看结果:{}", JSON.toJSONString(coursePo));
+        return coursePo;
     }
 
     @PostMapping("/course/list")
